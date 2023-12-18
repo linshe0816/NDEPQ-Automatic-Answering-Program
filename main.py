@@ -18,22 +18,23 @@ while True:
     driver.get(url)
     while True:
         
-            # 找到Ans1到Ans4按钮
+        # Find the Ans-btns
         try:
             buttons = driver.find_elements(
                 By.XPATH, "//button[starts-with(@id, 'Ans')]")
-            # 随机点击一个按钮
+            # Random choice a btn to click
             random.choice(buttons).click()
 
-            # 等待页面加载完成
+            # Load page
             time.sleep(5)
         except:
+            # Done if button not found
             print('break')
             break
         try:
             img_back_element = driver.find_element("xpath",'//*[@id="imgBack"]')
             #print(img_back_element)
-            # 检查元素是否存在
+            # Check Back-btn
             if img_back_element:
                 #print('backBtnclick')
                 img_back_element.click()
@@ -41,7 +42,7 @@ while True:
             pass
 
     password_input = driver.find_element(By.XPATH, '//input[@name="PID" and @type="password"]')
-    password_input.clear()  # 清空输入框内容
+    password_input.clear()
     password_input.send_keys("F130740737")
 
     # Captcha
